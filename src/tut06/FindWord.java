@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class FindWord {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String directory = "src";
+        String directory = "src"; //Có thể thay đổi đường dẫn folder
 
         System.out.print("Enter the word: ");
         String word = scanner.nextLine();

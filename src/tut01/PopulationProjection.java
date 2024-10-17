@@ -2,10 +2,21 @@ package tut01;
 
 public class PopulationProjection {
     public static void main(String[] args) {
-        System.out.println("Population after 1 year: " + (312032486 + (365 * 24 * 60 * 60) / 7 - (365 * 24 * 60 * 60) / 13 + (365 * 24 * 60 * 60) / 45));
-        System.out.println("Population after 2 years: " + (312032486 + 2 * ((365 * 24 * 60 * 60) / 7 - (365 * 24 * 60 * 60) / 13 + (365 * 24 * 60 * 60) / 45)));
-        System.out.println("Population after 3 years: " + (312032486 + 3 * ((365 * 24 * 60 * 60) / 7 - (365 * 24 * 60 * 60) / 13 + (365 * 24 * 60 * 60) / 45)));
-        System.out.println("Population after 4 years: " + (312032486 + 4 * ((365 * 24 * 60 * 60) / 7 - (365 * 24 * 60 * 60) / 13 + (365 * 24 * 60 * 60) / 45)));
-        System.out.println("Population after 5 years: " + (312032486 + 5 * ((365 * 24 * 60 * 60) / 7 - (365 * 24 * 60 * 60) / 13 + (365 * 24 * 60 * 60) / 45)));
+        // Current population
+        int currentPopulation = 312032486;
+
+        // Constants for calculations
+        int secondsInYear = 365 * 24 * 60 * 60; // Total seconds in a year
+        int birthsPerYear = secondsInYear / 7;  // Births in a year
+        int deathsPerYear = secondsInYear / 13; // Deaths in a year
+        int immigrantsPerYear = secondsInYear / 45; // Immigrants in a year
+
+        // Calculate population for the next 5 years
+        System.out.println("Year\tProjected Population");
+        for (int year = 1; year <= 5; year++) {
+            // Update population
+            currentPopulation += birthsPerYear - deathsPerYear + immigrantsPerYear;
+            System.out.println(year + "\t \t" + currentPopulation);
+        }
     }
 }

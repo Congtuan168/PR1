@@ -1,7 +1,5 @@
 package tut06;
 
-import java.util.Scanner;
-
 public class BinaryToDecimal {
     public static void main(String[] args) {
         String[] testCases = { "0", "1", "10", "11", "100", "0000", "0001", "",
@@ -35,14 +33,14 @@ public class BinaryToDecimal {
     }
 
     private static int convert(String binary, int index) {
-        // Base case: if index reaches the length of the string
         if (index == binary.length()) {
             return 0;
         }
 
-        // Recursive case: calculate the value at the current index
-        int currentBit = binary.charAt(index) - '0'; // Convert char to int (0 or 1)
-        return (currentBit * (1 << (binary.length() - 1 - index))) + convert(binary, index + 1);
-    }
+        int currentBit = binary.charAt(index) - '0';
+        int powerOfTwo = (int) Math.pow(2, (binary.length() - 1 - index));
+        int currentValue = currentBit * powerOfTwo;
 
+        return currentValue + convert(binary, index + 1);
+    }
 }

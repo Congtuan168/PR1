@@ -1,12 +1,10 @@
 package tut02;
 
-import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class FinancialCompoundValue {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
 
         System.out.print("Enter the monthly saving amount: ");
         double monthlySaving = scanner.nextDouble();
@@ -18,6 +16,8 @@ public class FinancialCompoundValue {
             accountValue = (accountValue + monthlySaving) * (1 + monthlyInterestRate);
         }
 
-        System.out.println("The account value after the sixth month is: " + decimalFormat.format(accountValue) + " VND");
+        // Format the output to two decimal places
+        String formattedValue = String.format("%,.2f", accountValue);
+        System.out.println("The account value after the sixth month is: " + formattedValue + " VND");
     }
 }
